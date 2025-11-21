@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+* {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    /* padding: 0; */
+    box-sizing: border-box;
+}
+
+
+@theme {
+    /* Background Colors */
+    --color-olx_bg_white: #ffffff;
+    --color-olx_bg_light: #f2f4f5;
+    --color-olx_bg_lighter: #ebf1ff;
+    --color-olx_bg_dark: #002f34;
+    --color-olx_bg_dark_light: #002f3408;
+
+    /* Text Colors */
+    --color-olx_text_white: #ffffff;
+    --color-olx_text_gray: #7f9799;
+    --color-olx_text_blue: #3a77ff;
+    --color-olx_text_green: #008000;
+    --color-olx_text_gray_dark: #406367;
+    --color-olx_text_teal_dark: #002f34;
+    --color-olx_text_dark2: #222222;
+    --color-olx_text_black: #000000;
+
+    /** hover colors **/
+    --color-olx_hover_blue-light:#ceddff;
+
+    /* Fill Colors */
+    --color-olx_fill_white: #ffffff;
+    --color-olx_fill_yellow: #ffda44;
+    --color-olx_fill_yellow_dark: #ffda2c;
+    --color-olx_fill_green: #249f58;
+    --color-olx_fill_red: #f93939;
+    --color-olx_fill_blue: #3a77ff;
+    --color-olx_fill_red_dark: #cf142b;
+    --color-olx_fill_blue2: #0052b4;
+    --color-olx_fill_blue3: #1a47b8;
+    --color-olx_fill_blue4: #232c80;
+    --color-olx_fill_blue5: #00247d;
+    --color-olx_fill_teal_dark: #002f34;
+    --color-olx_fill_dark2: #222222;
+    --color-olx_fill_dark3: #151515;
+    --color-olx_fill_black: #000000;
+
+    /* Border Colors */
+    --color-olx_border_gray: #e8ecec;
+    --color-olx_border_gray_light: #d8dfe0;
+    --color-olx_border_gray_dark: #406367;
+    --color-olx_border_teal_dark: #002f34;
+
+    /** fonts size **/
+    --text-12: 12px;           /* 362 occurrences */
+    --text-13: 13.3333px;       /* 9 occurrences */
+    --text-14: 14px;            /* 1,537 occurrences */
+    --text-15: 15.96px;         /* 60 occurrences */
+    --text-16: 16px;          /* 169 occurrences */
+    --text-18: 18px;            /* 84 occurrences */
+    --text-24: 24px;            /* 21 occurrences */
+
+}
+
+:root { --r: 10px; }
+
+/* parent */
+#olx {
+  position: relative;
+  padding: 9px;
+  z-index: 0;        
+  display: inline-block;  
+  margin-top: 10px;
+}
+
+#line{
+  background-color:#d8dfe0;
+  height: 1px;
+  width: 100%;
+  margin: 2.4rem 0;
+}
+
+#olx::after {
+  content: "";
+  
+  position: absolute;
+  display: block;         /* ensure pseudo element renders correctly */
+  inset-block: calc(var(--r) * -1);   /* top & bottom offsets */
+  inset-inline: calc(var(--r) * -2);  /* left & right offsets */
+  border-inline: var(--r) solid transparent;
+  border-radius: calc(var(--r) * 2) calc(var(--r) * 2) 0 0 / var(--r);
+  background: #fff;
+  z-index: -1;            /* sits behind parent but above page because parent has z-index:0 */
+  pointer-events: none;   /* so it doesn't block clicks */
+
+  /* Mask — include webkit fallback for Safari */
+  -webkit-mask:
+    radial-gradient(var(--r) at var(--r) 0, transparent 100%, #000 100%)
+    calc(var(--r) * -1) 100% / 100% var(--r) repeat-x,
+    conic-gradient(#000 0 0) padding-box;
+  mask:
+    radial-gradient(var(--r) at var(--r) 0, transparent 100%, #000 100%)
+    calc(var(--r) * -1) 100% / 100% var(--r) repeat-x,
+    conic-gradient(#000 0 0) padding-box;
+}
