@@ -218,7 +218,7 @@ const Auth = ({ onClose }) => {
                         <div className="flex items-center flex-col gap-1 !mb-4">
                             
                             {/* google link */}
-                            <Link to={`http://localhost:8000/api/v1/users/google/auth`} className="max-w-[336px] w-full text-[#002f34] fill-[#002f34] bg-white border-0 shadow-[inset_0_0_0_var(--btn-border-thickness,.1rem)_var(--btn-border-color,#002f34)] h-[48px] transition-shadow flex items-center justify-center gap-2 rounded-[4px]">
+                            <Link to={`${import.meta.env.VITE_SERVER}/api/v1/users/google/auth`} className="max-w-[336px] w-full text-[#002f34] fill-[#002f34] bg-white border-0 shadow-[inset_0_0_0_var(--btn-border-thickness,.1rem)_var(--btn-border-color,#002f34)] h-[48px] transition-shadow flex items-center justify-center gap-2 rounded-[4px]">
                                 <img src={IconGoogle} />
                                 <span className="text-[#002f34] text-15 font-semibold">Google</span>
                             </Link>
